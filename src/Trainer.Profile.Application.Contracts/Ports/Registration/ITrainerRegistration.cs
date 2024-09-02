@@ -2,7 +2,7 @@
 
 namespace Trainer.Profile.Application.Contracts.Ports.Registration;
 
-public interface IUserRegistration
+public interface ITrainerRegistration
 {
     Task<TrainerRegistrationResponseModel> RegisterTrainerAsync(TrainerRegistrationRequestModel request,
         CancellationToken cancellationToken);

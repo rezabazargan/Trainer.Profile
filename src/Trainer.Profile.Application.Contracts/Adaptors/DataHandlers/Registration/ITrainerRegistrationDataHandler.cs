@@ -2,7 +2,7 @@
 
 namespace Trainer.Profile.Application.Contracts.Adaptors.DataHandlers.Registration;
 
-public interface IRegistrationDataHandler
+public interface ITrainerRegistrationDataHandler
 {
     Task<TrainerStoreResponseModel> StoreAsync(TrainerStoreRequestModel request, CancellationToken cancellationToken);
 }
