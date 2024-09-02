@@ -1,17 +1,24 @@
-﻿using Trainer.Profile.Application.Contracts.Adaptors.Communication.Registration.Models;
-using Trainer.Profile.Application.Contracts.Adaptors.DataHandlers.Registration.Models;
+﻿using FluentValidation;
 using Trainer.Profile.Application.Contracts.Ports.Registration;
 using Trainer.Profile.Application.Contracts.Ports.Registration.Models;
+using ValidationException = Trainer.Profile.Application.Contracts.Exceptions.ValidationException;
 
 namespace Trainer.Profile.Application.Services.Registration;
 
-internal class TrainerRegistration()
+internal class TrainerRegistration(IValidator<TrainerRegistrationRequestModel> validator)
     : ITrainerRegistration
 {
     public async Task<TrainerRegistrationResponseModel> RegisterTrainerAsync(TrainerRegistrationRequestModel request,
         CancellationToken cancellationToken)
     {
         // Validation
+        var validationResult = await validator.ValidateAsync(request, cancellationToken);
+        if (!validationResult.IsValid)
+        {
+            throw new ValidationException(
+                validationResult.Errors.ToDictionary(e => e.PropertyName, e => e.ErrorMessage));
+        }
+
 
         // Register User to the IdentityService
         // Store to the DB
