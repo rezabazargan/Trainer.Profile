@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Trainer.Profile.Adaptors.Ef\Trainer.Profile.Adaptors.Ef.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
