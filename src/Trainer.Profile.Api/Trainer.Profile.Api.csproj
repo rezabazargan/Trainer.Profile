@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Trainer.Profile.Application\Trainer.Profile.Application.csproj" />
+    <ProjectReference Include="..\Trainer.Profile.Application.Contracts\Trainer.Profile.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Trainer.Profile.Adaptors.Ef\Trainer.Profile.Adaptors.Ef.csproj" />
+  </ItemGroup>
+
+</Project>
