@@ -1,4 +1,5 @@
 using Trainer.Profile.Api.APIs.Registration;
+using Trainer.Profile.Api.ExceptionHandler;
 using Trainer.Profile.Application.Module;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,11 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddExceptionHandler<GeneralExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 builder.Services.RegisterApplication(c => { });
 
 
 var app = builder.Build();
 
+app.UseExceptionHandler();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
