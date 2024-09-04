@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Trainer.Profile.Adaptors.Http.Refit\Trainer.Profile.Adaptors.Http.Refit.csproj" />
     <ProjectReference Include="..\Trainer.Profile.Application\Trainer.Profile.Application.csproj" />
     <ProjectReference Include="..\Trainer.Profile.Application.Contracts\Trainer.Profile.Application.Contracts.csproj" />
     <ProjectReference Include="..\Trainer.Profile.Adaptors.Ef\Trainer.Profile.Adaptors.Ef.csproj" />
