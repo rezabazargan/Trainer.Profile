@@ -14,7 +14,7 @@ internal class UserRegistrationAdaptor(IIdentityApi identityApi) : IUserRegistra
         {
             Email = request.Username,
             Name = request.Name,
-            Password = request.Password
+            Password = request.Password,
         }, cancellationToken);
 
         return new UserRegistrationResponseModel()
