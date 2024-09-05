@@ -1,3 +1,4 @@
+using Trainer.Profile.Adaptors.Ef.Module;
 using Trainer.Profile.Adaptors.Http.Refit.Module;
 using Trainer.Profile.Api.APIs.Registration;
 using Trainer.Profile.Api.ExceptionHandler;
@@ -15,6 +16,7 @@ builder.Services.AddProblemDetails();
 
 builder.Services.RegisterApplication(c => { });
 builder.Services.RegisterRefitAdaptor(builder.Configuration);
+builder.Services.RegisterEfAdaptor(c => c.ConnectionString = builder.Configuration.GetConnectionString("ProfileSQL"));
 
 var app = builder.Build();
 
