@@ -5,6 +5,7 @@ using Trainer.Profile.Adaptors.Ef.Implementations;
 using Trainer.Profile.Adaptors.Ef.Repositories;
 using Trainer.Profile.Application.Contracts.Adaptors.DataHandlers;
 using Trainer.Profile.Application.Contracts.Adaptors.DataHandlers.Registration;
+using Trainer.Profile.Application.Contracts.Adaptors.DataHandlers.Settings;
 
 namespace Trainer.Profile.Adaptors.Ef.Module;
 
@@ -24,9 +25,11 @@ public static class DiRegistration
 
         //Repositories
         services.AddScoped<IRepository<TrainerEntity, Guid>, TrainerRepository>();
+        services.AddScoped<IRepository<TrainerSettingsEntity, Guid>, TrainerSettingsRepository>();
 
         //Adaptor Implementations
         services.AddScoped<ITrainerRegistrationDataHandler, TrainerRegistrationDataHandler>();
+        services.AddScoped<ITrainerSettingsDataHandler, TrainerSettingsDataHandler>();
 
         return services;
     }

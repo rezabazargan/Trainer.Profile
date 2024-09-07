@@ -12,4 +12,5 @@ internal class TrainerProfileDbContext(DbContextOptions<TrainerProfileDbContext>
     }
 
     public DbSet<TrainerEntity> Trainers { get; set; }
+    public DbSet<TrainerSettingsEntity> TrainerSettings { get; set; }
 }
